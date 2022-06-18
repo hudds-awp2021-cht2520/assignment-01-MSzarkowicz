@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Image;
 use Illuminate\Database\Seeder;
 
 
-class UserSeeder extends Seeder
+class ImageSeeder extends Seeder
 {
     public function run()
     {
-        User::factory(25)->create();
+        Image::factory(100)->create();
     }
 }

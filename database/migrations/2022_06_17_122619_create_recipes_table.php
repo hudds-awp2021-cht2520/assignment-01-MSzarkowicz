@@ -6,24 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->unique();
+            $table->text('body');
+            $table->integer('rating')->default(5);
+            $table->integer('prep_time_in_min')->default(30);
+            $table->boolean('published');
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('recipes');
