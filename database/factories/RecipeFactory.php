@@ -9,7 +9,7 @@ class RecipeFactory extends Factory
     public function definition()
     {
         return [
-
+            'user_id'=> $this->faker->numberBetween(1, 25),
             'title' => $this->faker->unique()->sentence(),
             'body' => $this->faker->text(),
             'rating' => $this->faker->numberBetween(1, 5),
