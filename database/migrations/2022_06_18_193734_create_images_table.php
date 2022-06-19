@@ -11,11 +11,12 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('recipe_id')->constrained();
             $table->string('title')->sentence();
-            $table->string('author');
+            $table->string('author')->nullable();
             $table->string('source')-> nullable();
-            $table->text('image_path');
-            $table->string('alt_text');
+            $table->text('image_path')->unique();
+            $table->string('alt_text')->nullable();
             $table->timestamps();
         });
     }
