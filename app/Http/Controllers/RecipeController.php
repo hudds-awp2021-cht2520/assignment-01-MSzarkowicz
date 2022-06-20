@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recipe;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreRecipeRequest;
 use App\Http\Requests\UpdateRecipeRequest;
 
@@ -14,8 +15,8 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   $recipes = Recipe::where('user_id', Auth::id())->paginate(1);
+        return view('recipes.index')->with('recipes', $recipes);
     }
 
     /**

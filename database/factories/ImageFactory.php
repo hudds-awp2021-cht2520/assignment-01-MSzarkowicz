@@ -13,7 +13,7 @@ class ImageFactory extends Factory
             'recipe_id' => $this->faker->unique()->numberBetween(1, 100),
             'title' => $this->faker->sentence(4),
             'author' => $this->faker->name(),
-            'image_path' => $this->faker->unique()->imageUrl(640, 360, 'recipe', true),
+            'image_path' => $this->faker->imageUrl(640, 360, 'recipe', true),
             'source' => $this->faker->domainName(),
             'alt_text' => $this->faker->sentence(4)
         ];

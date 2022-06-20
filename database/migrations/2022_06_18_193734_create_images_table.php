@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('title')->sentence();
             $table->string('author')->nullable();
             $table->string('source')-> nullable();
-            $table->text('image_path')->unique();
+            $table->text('image_path');
             $table->string('alt_text')->nullable();
             $table->timestamps();
         });
