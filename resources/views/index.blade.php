@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body class="antialiased">
-        <div class="relative flex justify-center min-h-screen py-4 items-top sm:items-center sm:pt-0">
+        <div class="relative flex justify-center min-h-screen:20hv py-4 items-top sm:items-center sm:pt-0">
             @if (Route::has('login'))
                 <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
                     @auth
@@ -26,10 +26,38 @@
                     @endauth
                 </div>
             @endif
-            <h1 class="text-5xl">
+            {{-- <h1 class="text-5xl">
                 Recipes
-            </h1>
+            </h1> --}}
 
         </div>
+        
+            <header class="bg-white shadow">
+                <div class="max-w-7xl ml-0.25 py-0.5 px-4 sm:px-6 lg:px-8">
+                <h2 class="text-8xl font-semibold leading-tight text-gray-800">
+                    Recipes
+                </h2>
+                </div>
+            </header>
+            <main>
+                <div class="py-12">
+                    <div class="mx-auto max-w-4xl sm:px-6 lg:px-8">
+                        @forelse ($recipes as $recipe)
+                            <div class="p-6 my-6 bg-white border-gray-200 shadow-sm sm:rounded-lg">
+                                    <h2 class="text-2xl font-bold">
+                                        {{ $recipe->title }}
+                                    </h2>
+                                    <p class="mt-2">
+                                        {{ Str::limit($recipe->body, 200) }}
+                                    </p>
+                                    <span class="block mt-4 text-sm opacity-70">{{ $recipe->prep_time_in_min }}<p>minutes</p></span>
+                            </div>
+                        @empty
+                        <p>No published recipes</p>
+                        @endforelse
+                        {{ $recipes->links() }}
+                    </div>
+                </div>
+            </main>
     </body>
 </html>
