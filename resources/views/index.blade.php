@@ -28,13 +28,12 @@
                     </div>
                         @endif
             </nav>
-        </header>
-            <div class="align-center my-11">
+            <div class="align-center">
                 <h1 class="text-8xl text-center text-white">
                         Recipes
                 </h1>
-            </div>           
-      
+            </div> 
+        </header>          
             <main>
                 <div class="py-12">
                     <div class="mx-auto max-w-4xl sm:px-6 lg:px-8 dark:tekst-white">
@@ -48,7 +47,7 @@
                                 </p>   
                                 <span class="text-lg inline-grid grid-cols-3 gap-4 p-4 place-items-end"> 
                                     <span>
-                                        <img class="w-auto md:w-32 my-4 lg:w-48" src="https://source.unsplash.com/360x360/?food"></img> 
+                                        <img class="w-auto md:w-32 my-4 lg:w-48" src="https://source.unsplash.com/600x600/?food-%26-drink/{{ $recipe->id }}"/>
                                     </span> 
                                     <span></span>
                                     <span class="self-stretch mt-20 dark:text-slate-200">

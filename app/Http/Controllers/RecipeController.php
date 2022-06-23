@@ -15,7 +15,9 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $recipes = Recipe::where('user_id', Auth::id())->latest('updated_at')->paginate(2);
+    {   
+        $recipes = Recipe::where('user_id', Auth::id())->latest('updated_at')->paginate(2);
+
         return view('recipes.index')->with('recipes', $recipes);
     }
 
@@ -46,6 +48,7 @@ class RecipeController extends Controller
             'title' => $request->title,
             'body' => $request->body
         ]);
+
         return to_route('recipes.index');
     }
 
@@ -72,7 +75,11 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        //
+        if($recipe ->user_id != Auth::id()){
+            return abort(403);
+        }
+        
+        return view('recipes.edit')->with('recipe', $recipe);
     }
 
     /**
@@ -83,8 +90,22 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateRecipeRequest $request, Recipe $recipe)
-    {
-        //
+    {   
+        if($recipe ->user_id != Auth::id()){
+            return abort(403);
+        }
+
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        Auth::user()->recipe()->update([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+
+        return to_route('recipes.show', $recipe);
     }
 
     /**
@@ -95,6 +116,12 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        //
+        if($recipe ->user_id != Auth::id()){
+            return abort(403);
+        }
+
+        $recipe->delete();
+
+        return to_route('recipes.index');
     }
 }
