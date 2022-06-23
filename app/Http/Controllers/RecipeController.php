@@ -15,7 +15,7 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $recipes = Recipe::where('user_id', Auth::id())->paginate(1);
+    {   $recipes = Recipe::where('user_id', Auth::id())->latest('updated_at')->paginate(2);
         return view('recipes.index')->with('recipes', $recipes);
     }
 
@@ -26,7 +26,7 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        //
+        return view('recipes.create');
     }
 
     /**
@@ -37,7 +37,16 @@ class RecipeController extends Controller
      */
     public function store(StoreRecipeRequest $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        Auth::user()->recipe()->create([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+        return to_route('recipes.index');
     }
 
     /**

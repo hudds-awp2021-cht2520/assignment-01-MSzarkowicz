@@ -11,49 +11,59 @@
          <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
-    <body class="antialiased">
-        <div class="relative flex justify-center min-h-screen:20hv py-4 items-top sm:items-center sm:pt-0">
-            @if (Route::has('login'))
-                <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ route('recipes.index') }}" class="text-sm text-gray-700 underline ">Recipes</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline ">Log in</a>
+    <body class="antialiased dark:bg-slate-900 dark:text-white" >
+        <header>
+            <nav class="relative flex justify-center min-h-screen:20hv py-4 items-top sm:items-center sm:pt-0">
+                    @if (Route::has('login'))
+                    <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
+                        @auth
+                            <a href="{{ route('recipes.index') }}" class="text-sm dark:text-white underline ">My Recipes</a>
+                        @else
+                            <a href="{{ route('login') }}" class="text-sm dark:text-white underline ">Log in</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline ">Register</a>
+                                <a href="{{ route('register') }}" class="ml-4 text-sm dark:text-white underline ">Register</a>
                         @endif
-                    @endauth
-                </div>
-            @endif
-            {{-- <h1 class="text-5xl">
-                Recipes
-            </h1> --}}
-
-        </div>
-        
-            <header class="bg-white shadow">
-                <div class="max-w-7xl ml-0.25 py-0.5 px-4 sm:px-6 lg:px-8">
-                <h2 class="text-8xl font-semibold leading-tight text-gray-800">
-                    Recipes
-                </h2>
-                </div>
-            </header>
+                        @endauth
+                    </div>
+                        @endif
+            </nav>
+        </header>
+            <div class="align-center my-11">
+                <h1 class="text-8xl text-center text-white">
+                        Recipes
+                </h1>
+            </div>           
+      
             <main>
                 <div class="py-12">
-                    <div class="mx-auto max-w-4xl sm:px-6 lg:px-8">
+                    <div class="mx-auto max-w-4xl sm:px-6 lg:px-8 dark:tekst-white">
                         @forelse ($recipes as $recipe)
-                            <div class="p-6 my-6 bg-white border-gray-200 shadow-sm sm:rounded-lg">
-                                    <h2 class="text-2xl font-bold">
-                                        {{ $recipe->title }}
-                                    </h2>
-                                    <p class="mt-2">
-                                        {{ Str::limit($recipe->body, 200) }}
-                                    </p>
-                                    <span class="block mt-4 text-sm opacity-70">{{ $recipe->prep_time_in_min }}<p>minutes</p></span>
+                            <div class="p-6 my-6 dark:bg-slate-800 border-gray-200 shadow-sm sm:rounded-lg dark:text-slate-400 static">
+                                <h2 class="text-lg font-bold dark:text-white ">
+                                    {{ $recipe->title }}
+                                </h2> 
+                                <p class="mt-2 dark:text-slate-300">
+                                    {{ Str::limit($recipe->body, 200) }}
+                                </p>   
+                                <span class="text-lg inline-grid grid-cols-3 gap-4 p-4 place-items-end"> 
+                                    <span>
+                                        <img class="w-auto md:w-32 my-4 lg:w-48" src="https://source.unsplash.com/360x360/?food"></img> 
+                                    </span> 
+                                    <span></span>
+                                    <span class="self-stretch mt-20 dark:text-slate-200">
+                                        <p>Rating: {{ $recipe->rating }}</p>
+                                    </span>
+                                </span>  
+                                <span class="inline-grid grid-cols-2 gap-4 place-items-start">
+                                    <span class="text-sm opacity-70 self-stretch justify-self-start">
+                                        <p>Preparation time: {{ $recipe->prep_time_in_min }} minutes</p>
+                                    </span>
+                                <span></span>
+                                </span>
                             </div>
                         @empty
-                        <p>No published recipes</p>
+                            <p>No published recipes</p>
                         @endforelse
                         {{ $recipes->links() }}
                     </div>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->text('body');
             $table->integer('rating')->default(5);
             $table->integer('prep_time_in_min')->default(30);
-            $table->boolean('published');
+            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="dark:bg-gray-800 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,12 +6,15 @@
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
                     <a href="{{ route('recipes.index') }}">
-                        <x-application-logo class="block w-auto h-10 text-gray-600 fill-current" />
+                        <x-application-logo class="block w-auto h-10 dark:text-white fill-current" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('index')" :active="request()->routeIs('recipes.index')">
+                        {{ __('Home') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('recipes.index')" :active="request()->routeIs('recipes.index')">
                         {{ __('Recipes') }}
                     </x-nav-link>
@@ -22,7 +25,7 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300">
+                        <button class="flex items-center text-sm font-medium dark:text-white transition duration-150 ease-in-out hover:text-red-300 focus:border-red-600 focus:text-red-400 ">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
