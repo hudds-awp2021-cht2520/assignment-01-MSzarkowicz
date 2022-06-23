@@ -5,18 +5,15 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
-                    <a href="{{ route('recipes.index') }}">
-                        <x-application-logo class="block w-auto h-10 dark:text-white fill-current" />
+                    <a href="{{ route('index') }}">
+                        <x-header-icon class="block w-auto h-10 dark:text-white fill-current mr-2 self-center" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('index')" :active="request()->routeIs('recipes.index')">
-                        {{ __('Home') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('recipes.index')" :active="request()->routeIs('recipes.index')">
-                        {{ __('Recipes') }}
+                        {{ __('My Recipes') }}
                     </x-nav-link>
                 </div>
             </div>
