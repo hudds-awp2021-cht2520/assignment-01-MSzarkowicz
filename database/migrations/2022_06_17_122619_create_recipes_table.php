@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('title')->unique();
+            $table->string('title');
             $table->text('body');
             $table->integer('rating')->default(5);
             $table->integer('prep_time_in_min')->default(30);
