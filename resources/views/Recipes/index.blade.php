@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-span-3 ">
                     <h2 class="text-2xl font-bold">
-                        {{ $recipe->title }}
+                        <a href='{{ route('recipes.show', $recipe) }}'>{{ $recipe->title }}</a>
                     </h2>
                     <span class="block mt-4 text-sm opacity-70">{{ $recipe->updated_at->diffForHumans() }}</span>
                 </div>
