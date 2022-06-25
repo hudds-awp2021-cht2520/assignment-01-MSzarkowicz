@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Route::resource('recipes', RecipeController::class);
-Route::resource('/', HomeController::class);
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::resource('recipes', RecipeController::class);
+
+Route::get('/recipe/{recipe}', [RecipeController::class, 'show'])->name('recipe.show');
+
+Route::resource('/', HomeController::class)
+->middleware(['auth']);
 
 Route::resource('/recipes', RecipeController::class)
 ->middleware(['auth']);
