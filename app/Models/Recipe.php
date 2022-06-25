@@ -15,7 +15,25 @@ class Recipe extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function image(){
-        return $this->hasOne(Image::class);
+
+    public function ownedBy(User $user){
+
+        return $user->id === $this->user_id;
     }
+
+    
+    public function notOwnedBy(User $user){
+
+        return $user->id !== $this->user_id;
+    }
+    // public function path ($append = "") {
+
+    //     return "/index/" . $this -> id . "/" . $append;
+    // }
+
+    // public function getPathAttribute () {
+
+    //     return $this -> path ();
+
+    // }
 }
