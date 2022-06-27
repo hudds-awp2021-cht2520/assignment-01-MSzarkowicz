@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2>
-            {{ __('My Recipe') }}
+            {{ __('Recipe') }}
         </h2>
     </x-slot>
 
@@ -28,14 +28,15 @@
                     </form>
                 </div>
             @endif
-            @if($recipe->notOwnedBy(auth()->user()))
+            {{-- @if($recipe->notOwnedBy(auth()->user()))
                 <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div class="flex justify-end w-100">
                         <div class="mr-5">
+                            <x-details-btn :recipe="$recipe"/>
                         </div>
                     </div>
                 </div>
-            @endif
+            @endif --}}
             </div>
             <div class="grid grid-rows-3 grid-flow-col gap-4 py-20 px-10 my-6 dark:bg-slate-800 border-gray-200 shadow-sm sm:rounded-lg">
                 <div class="row-span-3">

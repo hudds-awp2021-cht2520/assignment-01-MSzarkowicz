@@ -1,72 +1,34 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>{{ config ('app.name') }}</title>
-         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    </head>
-    <body class="antialiased dark:bg-slate-900 dark:text-white" >
-        <header>
-            <nav class="relative flex justify-center min-h-screen:20hv py-4 items-top sm:items-center sm:pt-0">
-                    @if (Route::has('login'))
-                    <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
-                        @auth
-                            <a href="{{ route('recipes.index') }}" class="text-sm dark:text-white underline ">My Recipes</a>
-                        @else
-                            <a href="{{ route('login') }}" class="text-sm dark:text-white underline ">Log in</a>
-
-                        @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 text-sm dark:text-white underline ">Register</a>
-                        @endif
-                        @endauth
-                    </div>
-                        @endif
-            </nav>
-            <div class="align-center">
-                <h1 class="text-8xl text-center text-white">
-                        Recipes
-                </h1>
+<x-app-layout>
+    <x-slot name="header">
+        <div class="bg-fixed bg-no-repeat h-screen w-screen bg-center bg-cover flex justify-center bg-blend-darken" style="background-image: url(../images/background.png">
+            <div class="flex backdrop-blur-lg backdrop-opacity-30 backdrop-brightness-40 background-contrast-200 justify-center self-center absolute p-8 sm:p-2">
+                <span class="font-black text-white text-center self-center">
+                    <h1 class="text-5xl xl:text-8xl md:text-7xl">{{ __('Browse and Share Recipes') }}</h1>
+                </span>
             </div> 
-        </header>          
-            <main>
-                <div class="py-12">
-                    <div class="mx-auto max-w-4xl sm:px-6 lg:px-8 dark:tekst-white">
-                        @forelse ($recipes as $recipe)
-                            <div class="p-6 my-6 dark:bg-slate-800 border-gray-200 shadow-sm sm:rounded-lg dark:text-slate-400 static">
-                                <h2 class="text-lg font-bold dark:text-white ">
-                                    {{ $recipe->title }}
-                                </h2> 
-                                <p class="mt-2 dark:text-slate-300">
-                                    {{ Str::limit($recipe->body, 200) }}
-                                </p>   
-                                <span class="text-lg inline-grid grid-cols-3 gap-4 p-4 place-items-end"> 
-                                    <span>
-                                        <img class="w-auto md:w-32 my-4 lg:w-48" src="https://source.unsplash.com/600x600/?food-%26-drink/{{ $recipe->id }}"/>
-                                    </span> 
-                                    <span></span>
-                                    <span class="self-stretch mt-20 dark:text-slate-200">
-                                        <p>Rating: {{ $recipe->rating }}</p>
-                                    </span>
-                                </span>  
-                                <span class="inline-grid grid-cols-2 gap-4 place-items-start">
-                                    <span class="text-sm opacity-70 self-stretch justify-self-start">
-                                        <p>Preparation time: {{ $recipe->prep_time_in_min }} minutes</p>
-                                    </span>
-                                <span></span>
-                                </span>
-                            </div>
-                        @empty
-                            <p>No published recipes</p>
-                        @endforelse
-                        {{ $recipes->links() }}
-                    </div>
+        </div>   
+    </x-slot>     
+    <main class="pt-1 md:pt-2 xl:pt-5 border-t-2 border-white">
+       <div class="container grid m-auto xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-1 gap-x-0 gap-y-1 xl:gap-2 w-max-fit ">
+        @forelse ($recipes as $recipe)
+            <div class="grid justify-items-center bg-white p-5 rounded-lg shadow-2xl text-slate-900 content-center">
+                <div class="item self-center text-center">
+                    <h2 class="text-lg font-bold text-black text-ellipsis overflow">
+                        <a href='{{ route('recipe.show', $recipe) }}'>{{ $recipe->title }}</a>
+                   </h2>  
                 </div>
-            </main>
-    </body>
-</html>
+                <div class="item self-center mx-4">
+                    <img class="w-auto h-auto my-4" src="https://source.unsplash.com/800x500/?food-%26-drink/{{ $recipe->id }}" alt="Image of a meal."/>
+                </div>
+                <div class="item text-black">
+                    <p>Rating: {{ $recipe->rating }}</p>
+                </div> 
+            </div>
+        @empty
+            <p>No published recipes</p>
+        @endforelse
+        </div>
+        <div class="flex justify-center self-center mt-5 xl:mt-10">{{ $recipes->links() }}</div>
+    </main>
+    <x-footer></x-footer>
+</x-app-layout>
