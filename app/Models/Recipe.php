@@ -26,14 +26,4 @@ class Recipe extends Model
 
         return $user->id !== $this->user_id;
     }
-    // public function path ($append = "") {
-
-    //     return "/index/" . $this -> id . "/" . $append;
-    // }
-
-    // public function getPathAttribute () {
-
-    //     return $this -> path ();
-
-    // }
 }

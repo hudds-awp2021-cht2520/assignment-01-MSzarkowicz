@@ -12,19 +12,8 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             backgroundImage: {
-                'hero-pattern':"url('https://source.unsplash.com/1600x600/?food')",
             },
             colors: {
-                // transparent: 'transparent',
-                // current: 'currentColor',
-                // White: '#f8fafc',
-                // Gray: '#1f2937',
-                // Black: '#111827',
-                // Red: '#b91c1c',
-                // Blue: '#0284c7',
-                // LightRed: '#f87171',
-                // LightBlue: '#7dd3fc',
-                // LightGray: '#6b7280'
             },
         },
         plugins: [
