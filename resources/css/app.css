@@ -10,13 +10,13 @@
         @apply inline-block px-4 py-2 bg-red-700 rounded-md font-bold text-sm text-white uppercase tracking-widest hover:bg-red-600 active:bg-red-600 focus:ring ring-red-400;
     }
     .btn-link-2 {
-        @apply inline-flex px-4 py-2 bg-slate-900 rounded-md font-medium text-xs text-white uppercase tracking-widest focus:ring-slate-400 border border-slate-900 hover:border hover:border-slate-100 focus:ring;
+        @apply inline-flex px-4 py-2 bg-white rounded-md font-medium text-xs text-slate-900 uppercase tracking-widest focus:ring-slate-700 border border-slate-400 hover:border hover:border-slate-700 focus:ring;
     }
     .btn-lg {
         @apply px-6 py-3;
     }
-
     .input{
         @apply rounded-md focus:border-red-300 focus:ring-red-400  dark:bg-slate-600 dark:text-white px-1 py-1;
     }
 }
+

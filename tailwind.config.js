@@ -8,12 +8,18 @@ module.exports = {
     ],
     theme: {
         extend: {
+            screens:{
+                'md2': '912px'
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             backgroundImage: {
             },
             colors: {
+            },
+            container: {
+                center: true,
             },
         },
         plugins: [

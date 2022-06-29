@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="border-b border-gray-100 bg-white text-slate-800 fixed top-0 left-0 right-0 opacity-90">
+<nav x-data="{ open: false }" class="border-b border-gray-100 bg-white text-slate-800 fixed top-0 left-0 right-0 z-20">
     @if (Route::has('login'))
     @auth
     @else
@@ -10,7 +10,7 @@
    
     @endif
     <!-- Primary Navigation Menu -->
-    <div class="px-4 mx-auto max-w-screen sm:px-6 lg:px-8">
+    <div class="px-4 mx-5 max-w-screen sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->

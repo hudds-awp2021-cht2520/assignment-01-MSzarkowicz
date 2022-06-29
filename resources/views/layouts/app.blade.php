@@ -14,7 +14,7 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased bg-cover bg-center bg-gradient-to-r from-transparent via-red-400 to-transparent xs:min-w- ">
+    <body class="font-sans antialiased bg-cover bg-center bg-gradient-to-r from-transparent via-red-400 to-transparent">
         <div class="min-h-screen text-slate-900 ">
             @include('layouts.navigation')
             <header class="h-auto w-screen">
