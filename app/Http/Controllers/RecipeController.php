@@ -16,7 +16,7 @@ class RecipeController extends Controller
      */
     public function index()
     {   
-        $recipes = Recipe::where('user_id', Auth::id())->latest('updated_at')->paginate(2);
+        $recipes = Recipe::where('user_id', Auth::id())->latest('updated_at')->paginate(4);
 
         return view('recipes.index')->with('recipes', $recipes);
     }

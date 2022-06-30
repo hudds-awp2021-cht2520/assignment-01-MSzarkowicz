@@ -12,7 +12,7 @@
             @endif
 
             @if ($paginator->hasMorePages())
-                <a href="{{ $paginator->nextPageUrl() }}" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-red-500 focus:outline-none focus:ring ring-red-400 focus:border-red-300 active:bg-gray-100 active:text-red-700 transition ease-in-out duration-150">
+                <a href="{{ $paginator->nextPageUrl() }}" class="relative inline-flex items-center px-7 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-red-500 focus:outline-none focus:ring ring-red-400 focus:border-red-300 active:bg-gray-100 active:text-red-700 transition ease-in-out duration-150">
                     {!! __('pagination.next') !!}
                 </a>
             @else

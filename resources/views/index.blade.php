@@ -8,14 +8,14 @@
             </div> 
         </div>   
     </x-slot>     
-    <main class="pt-1 md:pt-2 xl:pt-5 border-t-2 border-white">
-       <div class="container grid m-auto xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-1 gap-x-0 gap-y-1 xl:gap-2 w-max-fit ">
+    <section class="pt-1 md:pt-2 xl:pt-5 border-t-2 border-white">
+       <div class="container grid m-auto xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-1 gap-x-0 gap-y-1 lg:gap-2 xl:gap-3 w-max-fit md:w-11/12 xl:w-10/12 2xl:w-8/12 ">
         @forelse ($recipes as $recipe)
             <div class="grid justify-items-center bg-white p-5 rounded-lg shadow-2xl text-slate-900 content-center">
-                <div class="item self-center text-center">
-                    <h2 class="text-lg font-bold text-black text-ellipsis overflow">
-                        <a href='{{ route('recipe.show', $recipe) }}'>{{ $recipe->title }}</a>
-                   </h2>  
+                <div class="item self-center text-center justify-items-center flex">
+                    <h2 class="text-lg font-bold text-black text-ellipsis capitalize mr-2 lg:mr-1">
+                        <a class="hover:text-red-500" href='{{ route('recipe.show', $recipe) }}'>{{ $recipe->title }}</a>
+                   </h2> 
                 </div>
                 <div class="item self-center mx-4">
                     <img class="w-auto h-auto my-4" src="https://source.unsplash.com/800x500/?food-%26-drink/{{ $recipe->id }}" alt="Image of a meal."/>
@@ -29,6 +29,6 @@
         @endforelse
         </div>
         <div class="flex justify-center self-center mt-5 xl:mt-10">{{ $recipes->links() }}</div>
-    </main>
+    </section>
     <x-footer></x-footer>
 </x-app-layout>
