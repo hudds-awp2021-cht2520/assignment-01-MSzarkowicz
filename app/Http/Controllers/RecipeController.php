@@ -16,7 +16,8 @@ class RecipeController extends Controller
      */
     public function index()
     {   
-        $recipes = Recipe::where('user_id', Auth::id())->latest('updated_at')->paginate(4);
+        $recipes = Recipe::where('user_id', Auth::id())
+        ->latest('updated_at')->paginate(4);
 
         return view('recipes.index')->with('recipes', $recipes);
     }
@@ -28,6 +29,7 @@ class RecipeController extends Controller
      */
     public function create()
     {
+       
         return view('recipes.create');
     }
 

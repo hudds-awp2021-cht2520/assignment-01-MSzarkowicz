@@ -17,7 +17,7 @@
     <body class="font-sans antialiased bg-cover bg-center bg-gradient-to-r from-transparent via-red-400 to-transparent">
         <div class="text-slate-900 ">
             @include('layouts.navigation')
-            <header class="h-auto w-screen">
+            <header class="h-auto w-screen border-b border-gray-100">
                 <div class=" text-xl bg-white">
                     {{ $header }}
                 </div>

@@ -11,28 +11,29 @@
     @endif
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-5 max-w-screen sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
+        <div class="flex justify-between h-16 ">
+            <div class="flex lg:px-6">
                 <!-- Logo -->
-                <div class="flex items-center shrink-0">
+                <div class="flex items-center shrink-0 mr-6">
                     <a href="{{ route('index') }}">
                         <x-header-icon class="block w-auto lg:h-10 md:h-9 sm:h-8 text-slate-800 self-center " />
                     </a>
                 </div>
-
+        
                 <!-- Navigation Links -->
-                <div class="space-x-8 sm:-my-px sm:ml-2 sm:flex self-center">
+                <div class=" sm:-my-px sm:flex self-center"> 
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
                         {{ __('Recipes') }}
-                    </x-nav-link>
+                    </x-nav-link> 
                 </div>
             </div>
 
+
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center sm:mr-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="flex items-center text-md font-medium text-slate-900 transition duration-150 ease-in-out hover:text-red-500 focus:border-red-600 focus:text-red-400 ">
+                        <button class="mr-6 flex items-center text-md font-medium text-slate-900 transition duration-150 ease-in-out hover:text-red-500 focus:border-red-600 focus:text-red-400 ">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
@@ -42,7 +43,6 @@
                             </div>
                         </button>
                     </x-slot>
-                    
                     <x-slot name="content">
                         <x-dropdown-link :href="route('recipes.index')">{{ __('My recipes') }}</x-dropdown-link>
                         <!-- Authentication -->
@@ -57,7 +57,34 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
+
+                <!-- set language -->
+                <x-lang class="" align="right" width="48">
+                    <x-slot name="trigger">
+                        <button class="flex items-center text-md font-medium text-slate-900 transition duration-150 ease-in-out hover:text-red-500 focus:border-red-600 focus:text-red-400 ">
+                            <span class="hidden">{{ Config::get('app.languages')[App::getLocale()]['display'] }}</span>
+                            <span class="ml-1 fi fi-{{Config::get('app.languages')[App::getLocale()]['flag-icon']}}"></span>
+                            <div class="ml-1">
+                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+                    </x-slot>
+                    <x-slot name="content">
+                    @foreach (Config::get('app.languages') as $lang => $language)
+                        @if ($lang != App::getLocale())
+                            <a class="block px-2 py-2 text-sm leading-5 text-gray-700 focus:bg-gray-100 transition duration-150 ease-in-out text-center hover:bg-red-400 hover:text-white"
+                                href="{{ route('lang.change', $lang) }}">
+                                <span class="fi fi-{{$language['flag-icon']}}"></span>
+                                    {{$language['display']}}
+                            </a>
+                        @endif
+                    @endforeach
+                    </x-slot>
+                </x-lang>
             </div>
+
 
             <!-- Hamburger -->
             <div class="flex items-center -mr-2 sm:hidden">
@@ -70,6 +97,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">

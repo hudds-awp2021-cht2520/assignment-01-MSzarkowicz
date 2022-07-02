@@ -14,7 +14,9 @@
             <div class="grid justify-items-center bg-white p-5 rounded-lg shadow-2xl text-slate-900 content-center">
                 <div class="item self-center text-center justify-items-center flex">
                     <h2 class="text-lg font-bold text-black text-ellipsis capitalize mr-2 lg:mr-1">
-                        <a class="hover:text-red-500" href='{{ route('recipe.show', $recipe) }}'>{{ $recipe->title }}</a>
+                        <a class="hover:text-red-500" href='{{ route('recipes.show', $recipe) }}'>
+                            {{ $recipe->title }}
+                        </a>
                    </h2> 
                 </div>
                 <div class="item self-center mx-4">

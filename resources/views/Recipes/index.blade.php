@@ -1,12 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="pt-24 pb-8 px-10 xl:px-14">
+        <div class="pt-24 pb-8 px-10 xl:px-20">
             <h2>
                 {{ __('My Recipes') }} 
             </h2>
         </div>
     </x-slot>
         <div class="py-6">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 w-auto">
                 <div class="flex justify-center md:justify-end xl:w-11/12 mt-5 md:mr-10">
                     <a href="{{ route('recipes.create') }}" class="btn-link-2 mb-2">
@@ -18,18 +23,18 @@
                 </div>
                 <div class="container grid m-auto lg:grid-cols-2 grid-cols-1 gap-x-1 gap-y-1 xl:gap-2 w-max-fit justify-items-stretch md:w-11/12 lg:w-max-fit xl:w-10/12 pt-10 min-h-fit">
                 @forelse ($recipes as $recipe)
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 p-6 bg-white border-gray-200 shadow-sm sm:rounded-lg md:px-20 m-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 p-6 bg-white border-gray-200 shadow-sm sm:rounded-lg md:px-10 m-auto">
                         <div class="col-span-1 grid-row-1 lg:col-span-3 justify-items-center">
                             <div class="flex justify-items-center align-middle">
-                                <h2 class="text-2xl font-bold text-center m-auto pt-7">
+                                <h2 class="text-2xl font-bold text-center m-auto pt-4">
                                     <a href='{{ route('recipes.show', $recipe) }}'>{{ $recipe->title }}</a>
                                 </h2>
                             </div>
                         </div>
                         <div class="grid-row-2 justify-items-center">
-                            <img class="scale-[0.8] lg:scale-110 pt-2 lg:pt-10 xl:pt-6 md:mx-0" src="https://source.unsplash.com/600x600/?food-%26-drink/{{ $recipe->id }}"/>
+                            <img class="scale-[0.8] lg:scale-110 pt-2 lg:pt-10 xl:pt-5 md:mx-0" src="https://source.unsplash.com/600x600/?food-%26-drink/{{ $recipe->id }}"/>
                         </div>
-                        <div class="grid-row-3 lg:col-span-2 col-span-1 m-auto px-4 pb-6 pt-2 lg:pt-4 text-justify justify-items-center">
+                        <div class="grid-row-3 lg:col-span-2 col-span-1 m-auto px-4 pb-6 pt-2 lg:pt-6 xl:mt-4 lg:ml-5 text-justify justify-items-center">
                             <p class="text-slate-900 text-justify">
                                 {{ Str::limit($recipe->body, 100) }}
                             </p>

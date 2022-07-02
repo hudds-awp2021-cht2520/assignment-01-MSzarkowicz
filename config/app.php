@@ -82,7 +82,25 @@ return [
     |
     */
 
-    'locale' => 'en_GB',
+    'locale' => 'en',
+
+
+    'languages' => [
+        'en' => [
+            'display' => 'English',
+            'flag-icon' => 'gb',
+        ],
+        'fr' => [
+            'display' => 'Français',
+            'flag-icon' => 'fr'
+        ],
+        'es' => [
+            'display' => 'Español',
+            'flag-icon' => 'es',
+        ],
+    ],
+
+   
 
     /*
     |--------------------------------------------------------------------------
@@ -194,6 +212,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 

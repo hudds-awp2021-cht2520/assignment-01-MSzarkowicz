@@ -13,12 +13,17 @@ mix.browserSync('http://127.0.0.1:8000');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
-    require('autoprefixer'),
-    require('tailwindcss'),
-    require('postcss-import'),
-    require('postcss-nested')
-]);
+mix
+    .js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .postCss('resources/css/app.css', 'public/css',
+    [
+        require('autoprefixer'),
+        require('tailwindcss'),
+        require('postcss-import'),
+        require('postcss-nested')
+
+    ]);
 
 if (mix.inProduction()) {
     
