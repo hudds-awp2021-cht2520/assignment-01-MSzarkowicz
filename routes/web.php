@@ -20,13 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('lang/{lang}', ['as' => 'lang.change', 'uses' => 'App\Http\Controllers\LocaleController@langChange']);
 
-Route::resource('recipes', RecipeController::class)->middleware(['auth']);
-
-Route::get('/recipe/{recipe}', [RecipeController::class, 'show'])->name('recipe.show');
+Route::resource('recipes', RecipeController::class)
+    ->middleware(['auth']);
 
 Route::resource('/', HomeController::class)
-->only(['index'])
-->middleware(['auth']);
+    ->only(['index'])
+    ->middleware(['auth']);
 
 require __DIR__.'/auth.php';
-

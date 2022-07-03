@@ -2,9 +2,9 @@
     @if (Route::has('login'))
     @auth
     @else
-        <a href="{{ route('login') }}" class="text-sm text-slate-800 underline ">Log in</a>
+        <a href="{{ route('login') }}" class="text-sm text-slate-800 underline ">{{ __('Log in') }}</a>
     @if (Route::has('register'))
-        <a href="{{ route('register') }}" class="ml-4 text-sm text-slate-800 underline ">Register</a>
+        <a href="{{ route('register') }}" class="ml-4 text-sm text-slate-800 underline ">{{ __('Register') }}</a>
     @endif
     @endauth
    
@@ -44,7 +44,7 @@
                         </button>
                     </x-slot>
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('recipes.index')">{{ __('My recipes') }}</x-dropdown-link>
+                        <x-dropdown-link :href="route('recipes.index')">{{ __('My') }} {{ __('Recipes') }}</x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -103,7 +103,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('recipes.index')" :active="request()->routeIs('recipes.index')">
-                {{ __('My Recipes') }}
+                {{ __('My') }} {{ __('Recipes') }}
             </x-responsive-nav-link>
         </div>
 

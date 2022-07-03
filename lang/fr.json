@@ -1,4 +1,16 @@
-{
+{   
+    "Recipes": "Recettes",
+    "Recipe": "Recette",
+    "My": "Ma/Mon",
+    "Browse and Share Recipes": "Parcourir et partager des recettes",
+    "Rating": "Évaluation",
+    "Preparation time": "Temps de préparation",
+    "Details of the Recipe": "Détails de la recette",
+    "There are no published recipes": "Il n'y a pas de recettes publiées",
+    "of the": "de la",
+    "Image of a meal": "Image d'un repas",
+    "Title": "le titre",
+    "Your recipe": "Votre recette",
     "30 Days": "30 jours",
     "60 Days": "60 jours",
     "90 Days": "90 jours",

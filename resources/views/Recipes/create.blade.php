@@ -16,7 +16,7 @@
                         type="text"
                         name="title"
                         field="title"
-                        placeholder="Title"
+                        placeholder="{{ __('Title') }}"
                         class="w-full input"
                         autocomplete="off"
                         :value="@old('title')"></x-input>
@@ -25,11 +25,11 @@
                         name="body"
                         rows="20"
                         field="body"
-                        placeholder="Your recipe..."
+                        placeholder="{{ __('Your recipe') }}..."
                         class="w-full mt-6 input"
                         :value="@old('body')"></x-textarea>
                         
-                    <button type="submit" class="mt-4 btn-link-2 self-center">Save</button>
+                    <button type="submit" class="mt-4 btn-link-2 self-center">{{ __('Save') }}</button>
                 </form>
              </div>
         </div>

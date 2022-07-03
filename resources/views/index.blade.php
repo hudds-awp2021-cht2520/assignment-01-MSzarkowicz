@@ -23,11 +23,11 @@
                     <img class="w-auto h-auto my-4" src="https://source.unsplash.com/800x500/?food-%26-drink/{{ $recipe->id }}" alt="Image of a meal."/>
                 </div>
                 <div class="item text-black">
-                    <p>Rating: {{ $recipe->rating }}</p>
+                    <p>{{ __('Rating') }}: {{ $recipe->rating }}</p>
                 </div> 
             </div>
         @empty
-            <p>No published recipes</p>
+            <p>There are no published recipes</p>
         @endforelse
         </div>
         <div class="flex justify-center self-center mt-5 xl:mt-10">{{ $recipes->links() }}</div>
