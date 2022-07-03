@@ -24,7 +24,12 @@ class UpdateRecipeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required', 'string',
+            'body' => 'required', 'string'
         ];
+
+        if ($recipe ->user_id != Auth::id()) {
+            return abort(403);
+        }
     }
 }

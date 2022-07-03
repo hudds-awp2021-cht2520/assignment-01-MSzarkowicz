@@ -16,8 +16,7 @@ class RecipeController extends Controller
      */
     public function index()
     {   
-        $recipes = Recipe::where('user_id', Auth::id())
-        ->latest('updated_at')->paginate(4);
+        $recipes = Recipe::where('user_id', Auth::id())->latest('updated_at')->paginate(4);
 
         return view('recipes.index')->with('recipes', $recipes);
     }
@@ -29,7 +28,6 @@ class RecipeController extends Controller
      */
     public function create()
     {
-       
         return view('recipes.create');
     }
 
@@ -41,15 +39,13 @@ class RecipeController extends Controller
      */
     public function store(StoreRecipeRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'body' => 'required'
-        ]);
 
         Auth::user()->recipe()->create([
             'title' => $request->title,
             'body' => $request->body
         ]);
+
+        $request->validated();
 
         return to_route('recipes.index');
     }
@@ -73,7 +69,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        if($recipe ->user_id != Auth::id()){
+        if ($recipe ->user_id != Auth::id()) {
             return abort(403);
         }
         
@@ -89,19 +85,7 @@ class RecipeController extends Controller
      */
     public function update(UpdateRecipeRequest $request, Recipe $recipe)
     {   
-        if($recipe ->user_id != Auth::id()){
-            return abort(403);
-        }
-
-        $request->validate([
-            'title' => 'required',
-            'body' => 'required'
-        ]);
-
-        Auth::user()->recipe()->update([
-            'title' => $request->title,
-            'body' => $request->body
-        ]);
+        $recipe->update($request->validated());
 
         return to_route('recipes.show', $recipe);
     }
@@ -114,7 +98,7 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        if($recipe ->user_id != Auth::id()){
+        if ($recipe ->user_id != Auth::id()) {
             return abort(403);
         }
 
