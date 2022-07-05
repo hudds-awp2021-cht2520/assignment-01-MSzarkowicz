@@ -39,13 +39,12 @@ class RecipeController extends Controller
      */
     public function store(StoreRecipeRequest $request)
     {
+        $request->validated();
 
         Auth::user()->recipe()->create([
             'title' => $request->title,
             'body' => $request->body
         ]);
-
-        $request->validated();
 
         return to_route('recipes.index');
     }

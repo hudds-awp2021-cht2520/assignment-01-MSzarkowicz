@@ -13,7 +13,7 @@ module.exports = {
                 'md2': '912px'
             },
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Nunito', ...defaultTheme.fontFamily.sans],   
             },
             backgroundImage: {
             },
