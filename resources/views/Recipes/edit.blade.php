@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div role="banner" class="flex justify-left pt-28 pb-8 px-10 xl:px-20">
-            <h2 class="text-xl font-semibold leading-tight dark:text-slate-white header">
+            <h2 class="text-xl header">
                 {{ __('Edit') }} {{ __('Recipe') }}
             </h2>
         </div>
@@ -20,7 +20,7 @@
                         field="title"
                         aria-required="true"
                         placeholder="{{ __('Title') }}"
-                        class="w-full mb-6 form-text"
+                        class="w-full mb-6"
                         autocomplete="off"
                         :value="@old('title', $recipe->title)"></x-input>
 
@@ -31,7 +31,7 @@
                         field="body"
                         aria-required="true"
                         placeholder="{{ __('Your recipe') }}..."
-                        class="w-full form-text"
+                        class="w-full"
                         :value="@old('body', $recipe->body)"></x-textarea>
                      <div class="text-end">   
                         <button data-message="Submit updated recipe" type="submit" class="mt-6 btn-link-2 btn-lg">{{ __('Update') }}</button>

@@ -1,14 +1,21 @@
 
 @import 'tailwindcss/base';
+@layer base{
+    button:focus-visible{
+        @apply focus:outline-none focus:ring focus:ring-red-400 focus:ring-opacity-60;
+    }
+}
+
+
+
+
 @import 'tailwindcss/utilities';
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
+
 
 @layer utilities {
     .form {
         @apply px-6 py-9 bg-white border-gray-200 shadow-sm rounded-lg w-screen md:w-3/4 xl:w-7/12;
-    }
+    } 
 }
 
 @import 'tailwindcss/components';
@@ -18,13 +25,13 @@
         @apply inline-block px-4 py-2 bg-red-700 rounded-md font-bold text-sm text-white uppercase tracking-widest hover:bg-red-600 active:bg-red-600 focus:ring ring-red-400;
     }
     .btn-link-2 {
-        @apply inline-flex px-4 py-2 bg-white rounded-md font-medium text-xs text-slate-900 uppercase tracking-widest focus:ring-slate-700 border border-slate-400 hover:border hover:border-slate-700 focus:ring;
+        @apply inline-flex px-4 py-2 bg-white rounded-md font-medium text-xs text-slate-900 uppercase tracking-widest focus:ring-slate-400 border border-slate-400 hover:border hover:border-slate-700 focus:ring;
     }
     .btn-lg {
         @apply px-6 py-3 font-black bg-red-500 text-white;
     }
     .input{
-        @apply rounded-md focus:border-red-300 focus:ring-red-400  bg-slate-200 text-slate-900 px-1 py-1 caret-red-400;
+        @apply rounded-md focus:outline-none focus:ring focus:ring-red-400 focus:ring-opacity-40 bg-slate-200 text-slate-900 px-1 py-1 caret-red-400;
     }
     
 }

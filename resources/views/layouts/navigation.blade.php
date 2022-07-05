@@ -16,7 +16,7 @@
                 <!-- Logo -->
                 <div role="menuitem" class="space-x-2 flex items-center shrink-0 sm:-my-px">
                     <x-nav-link role="button" aria-label="link" :href="route('index')" :active="request()->routeIs('index')">
-                        <x-header-icon aria-label="Recipes logo" role="img" title="Image of a cake" class=" mb-2 block w-auto lg:h-9 md:h-9 h-8 text-slate-800 self-center mr-2 lg:mr-6"/><h2 class="text-lg md:text-2xl logo-font"> {{ __('Recipes') }}</h2>
+                        <x-header-icon aria-label="Recipes logo" role="img" title="Image of a cake" class="mb-2 block w-auto lg:h-9 md:h-9 h-8 self-center mr-2 lg:mr-6"/><h2 class="text-lg md:text-2xl logo-font"> {{ __('Recipes') }}</h2>
                     </x-nav-link> 
                 </div>
             </div>
@@ -76,6 +76,8 @@
                     </x-lang>
                 </div>
             </div>
+
+            
             <!-- Hamburger -->
             <div aria-label="menu" role="button" class="-mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 text-gray-900 transition duration-150 ease-in-out rounded-md hover:text-red-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-300 focus:red-500">
@@ -85,7 +87,7 @@
                     </svg>
                 </button>
             </div>
-    </div>
+        </div>
 
 
     <!-- Responsive Navigation Menu -->

@@ -1,8 +1,8 @@
 <x-guest-layout>
     <x-auth-card>
-        <x-slot name="logo">
+        <x-slot name="logo" class="">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-logo-icon class="w-20 h-auto stroke-white fill-transparent pt-32 md:pt-0" />
             </a>
         </x-slot>
 
@@ -36,18 +36,18 @@
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox" class="rounded border-red-300 text-red-600 shadow-sm focus:border-red-300 focus:ring focus:ring-red-400 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm dark:text-slate-300">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-slate-900">{{ __('Remember me') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-around mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm dark:text-slate-300 hover:text-red-400" href="{{ route('password.request') }}">
+                    <a class="underline text-sm text-slate-900 hover:text-red-400" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                     
                 @endif
-                <a class="underline text-sm dark:text-slate-300 hover:text-red-400" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <a class="underline text-sm text-slate-900 hover:text-red-400" href="{{ route('register') }}">{{ __('Register') }}</a>
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>

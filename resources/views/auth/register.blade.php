@@ -2,7 +2,8 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-logo-icon class="w-20 h-auto stroke-white fill-transparent pt-28 md:pt-0" />
+                {{-- <x-header-icon aria-label="Recipes logo" role="img" title="Image of a cake" class=" mb-2 block w-auto lg:h-9 md:h-9 h-8 text-slate-800 self-center mr-2 lg:mr-6"/> --}}
             </a>
         </x-slot>
 
@@ -46,7 +47,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm dark:text-slate-300 hover:text-red-400" href="{{ route('login') }}">
+                <a class="underline text-sm text-slate-700 hover:text-red-400" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 
