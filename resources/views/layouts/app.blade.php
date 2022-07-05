@@ -14,7 +14,7 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased bg-cover bg-center bg-gradient-to-r from-transparent via-red-400 to-transparent">
+    <body class="font-sans antialiased bg-cover bg-center bg-gradient-to-r from-transparent via-red-400 to-transparent selection:bg-red-300 selection:text-red-900">
         <div class="text-slate-900 ">
             @include('layouts.navigation')
             <header class="h-auto w-screen border-b border-gray-100">
@@ -23,7 +23,7 @@
                 </div>
             </header>
             <!-- Page Content -->
-            <main class="">
+            <main>
                 {{ $slot }}
             </main>
         </div>

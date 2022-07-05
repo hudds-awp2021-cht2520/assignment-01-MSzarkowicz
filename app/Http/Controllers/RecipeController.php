@@ -69,7 +69,7 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        if ($recipe ->user_id != Auth::id()) {
+        if ($recipe->user_id != Auth::id()) {
             return abort(403);
         }
         

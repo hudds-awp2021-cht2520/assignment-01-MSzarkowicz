@@ -23,7 +23,12 @@ mix
         require('postcss-import'),
         require('postcss-nested')
 
-    ]);
+    ])
+    .webpackConfig({
+        stats: {
+            children: true,
+        },
+    });
 
 if (mix.inProduction()) {
     
