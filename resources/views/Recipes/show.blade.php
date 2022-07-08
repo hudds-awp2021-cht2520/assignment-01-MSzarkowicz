@@ -6,7 +6,7 @@
     </x-slot>
     <div class="pt-12">
         @if ($recipe->ownedBy(auth()->user()))
-        <div class="flex justify-evenly md:justify-end pb-5 pt-10 xl:pt-14 px-0 m-auto space-x-0 md:space-x-8 lg:space-x-8 box-border md:w-9/12 lg:w-11/12 lg2:w-10/12 xl:w-10/12 2xl:w-7/12 border-1 ">
+        <div class="flex justify-evenly md:justify-end pb-5 pt-10 md:pt-14 xl:pt-14 px-0 m-auto space-x-0 md:space-x-8 lg:space-x-8 box-border md:w-10/12 lg:w-11/12 lg2:w-10/12 xl:w-10/12 2xl:w-7/12 border-1 ">
             <div>
                 <a href="{{ route('recipes.edit', $recipe) }}" class="btn-link-2"><p class="self-center px-4 ml-2">{{ __('Edit') }}</p>
                     <x-edit-icon></x-edit-icon>

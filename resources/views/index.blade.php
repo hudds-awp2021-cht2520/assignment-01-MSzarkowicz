@@ -27,7 +27,9 @@
                 </div> 
             </div>
         @empty
-            <p>There are no published recipes</p>
+            <div class="container grid m-auto grid-cols-1 lg:grid-cols-1 lg:col-span-2 gap-x-1 w-max-fit justify-items-center  lg:w-max-fit pt-10 min-h-fit text-center bg-white">
+                <div class="w-full h-80"><h1 aria-label="No content found" class="mt-28 text-3xl">{{ __("There are no published recipes") }}</h1></div>
+            </div>
         @endforelse
         </div>
         <div class="flex justify-center self-center mt-5 xl:mt-10">{{ $recipes->links() }}</div>
